@@ -11,22 +11,34 @@ class regex
         
         if(match)
         {
-            println "True"
+            println "All are numbers"
         }
         else
         {
-            println "False"
+            println "Only Numbers are Allowed"
         }
 
-    /* 
-        def regex = /(?:yuvi)/
-        def str = "I am yuvi" =~ regex
+        println 'Groovy' =~ 'Groovy' 
+  //      def regex = /(?:yuvi)/
+  //      def str = "I am yuvi" =~ regex
 
 
-        def file = new File("JsonSlurper.groovy")
+// Code to replace all var with def in file slurper.groovy
+
+        def file = new File("slurper.groovy")
+        def content = file.text
+
+        for (i in 1..3)
+        {
+            content = ( content =~ /var/).replaceAll("def")
+        }
+        file.write(content)
+
+
+/*
         file.eachLine{ line, lineNo ->
         println lineNo line
-        def regex1 = /(?:json)/
+        def regex1 = /(?:def)/
         def match = file.text() =~ regex1
 
         if(match)
@@ -35,8 +47,8 @@ class regex
             println lineNo line match[0]
             }
         }
+*/        
         
-        */
 /*
         if(str)
         {
